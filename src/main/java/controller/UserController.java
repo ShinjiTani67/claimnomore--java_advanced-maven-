@@ -1,6 +1,6 @@
 package controller;
 
-import model.User;
+import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import repository.UserRepository;
