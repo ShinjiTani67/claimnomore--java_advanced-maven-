@@ -3,8 +3,10 @@ package controller;
 
 import entity.Dentist;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import repository.DentistRepository;
+import service.DentistService;
 
 import java.util.List;
 
@@ -13,14 +15,38 @@ import java.util.List;
 public class DentistController {
 
     @Autowired
-    private DentistRepository dentistRepository;
+    private DentistService dentistService;
 
-    @GetMapping
-    public List<Dentist> getAllUser(){
-        return dentistRepository.findAll();
+    @GetMapping("/list")
+    public String listDentists(Model model) {
+        List<Dentist> dentists = dentistService.getAllDentists();
+        model.addAttribute("dentists", dentists);
+        return "dentist-list"; // Página de listagem
     }
-    @PostMapping
-    public Dentist createUser(@RequestBody Dentist dentist) {
-        return (Dentist) dentistRepository.save(dentist);
+
+    @GetMapping("/form")
+    public String showDentistForm(Model model) {
+        model.addAttribute("dentist", new Dentist());
+        return "dentist-form";
+    }
+
+    @PostMapping("/save")
+    public String saveDentist(@ModelAttribute Dentist dentist) {
+        dentistService.saveDentist(dentist);
+        return "redirect:/dentist/list";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editDentist(@PathVariable Long id, Model model) {
+        Dentist dentist = dentistService.getDentistById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Dentista inválido: " + id));
+        model.addAttribute("dentist", dentist);
+        return "dentist-form";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteDentist(@PathVariable Long id) {
+        dentistService.deleteDentist(id);
+        return "redirect:/dentist/list";
     }
 }
