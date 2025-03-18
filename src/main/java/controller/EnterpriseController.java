@@ -1,7 +1,7 @@
 package controller;
 
 
-import model.Enterprise;
+import entity.Enterprise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import repository.EnterpriseRepository;

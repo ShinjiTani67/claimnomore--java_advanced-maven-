@@ -1,7 +1,7 @@
 package service;
 
 
-import dto.EnterpriseDto;
+import dto.EnterpriseDTO;
 import lombok.AllArgsConstructor;
 import mapper.EnterpriseMapper;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ public class EnterpriseService {
     private final EnterpriseRepository enterpriseRepository;
     private final EnterpriseMapper enterpriseMapper;
 
-    Optional<EnterpriseDto> buscarUUID(UUID uuid) {
+    Optional<EnterpriseDTO> buscarUUID(UUID uuid) {
         return enterpriseRepository.findByUuid(uuid).map(enterpriseMapper::toDto);
     }
 }
