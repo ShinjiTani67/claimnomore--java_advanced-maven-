@@ -1,27 +1,35 @@
 package service;
 
 
-import controller.UserController;
-import dto.UserDto;
+import entity.User;
 import lombok.AllArgsConstructor;
-import mapper.UserMapper;
-import model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.UserRepository;
-
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 
 @Service
 @AllArgsConstructor
 public class UserService {
-    private final UserRepository userRepository;
-    private final UserMapper userMapper;
 
-    Optional<UserDto>buscarUUID(UUID uuid) {
-        return userRepository.findByUuid(uuid).map(userMapper::toDto);
+    @Autowired
+    private UserRepository userRepository;
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 
+    public Optional<User> getUserById(Long id) {
+        return userRepository.findById(id);
+    }
+
+    public User saveUser(User user) {
+        return (User) userRepository.save(user);
+    }
+
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
 }
