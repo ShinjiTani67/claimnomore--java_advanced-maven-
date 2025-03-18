@@ -9,5 +9,4 @@ public class ClaimnomoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ClaimnomoreApplication.class, args);
 	}
-
 }
