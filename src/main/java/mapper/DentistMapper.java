@@ -3,6 +3,7 @@ package mapper;
 
 import dto.DentistDTO;
 import entity.Dentist;
+import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface DentistMapper {

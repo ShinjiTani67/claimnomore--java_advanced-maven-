@@ -1,9 +1,7 @@
 package mapper;
 
 import dto.UserDTO;
-import dto.UserDto;
 import entity.User;
-import model.User;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
