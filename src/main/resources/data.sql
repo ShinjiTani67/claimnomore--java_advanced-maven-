@@ -1,4 +1,3 @@
-
 CREATE TABLE DENTISTA (
     id_dentista NUMBER PRIMARY KEY,
     nome VARCHAR2(100) NOT NULL,
