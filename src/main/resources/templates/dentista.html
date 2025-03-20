@@ -27,12 +27,12 @@
                 <tr th:each="dentist : ${dentists}">
                     <td th:text="${dentist.id}"></td>
                     <td th:text="${dentist.name}"></td>
-                    <td th:text="${dentist.CPF}"></td>
-                    <td th:text="${dentist.CRO}"></td>
-                    <td th:text="${dentist.adress}"></td>
+                    <td th:text="${dentist.cpf}"></td>
+                    <td th:text="${dentist.cro}"></td>
+                    <td th:text="${dentist.address}"></td>
                     <td th:text="${dentist.phone}"></td>
                     <td th:text="${dentist.email}"></td>
-                    <td th:text="${dentist.birthdate}"></td>
+                    <td th:text="${dentist.birthDate}"></td>
                     <td>
                         <a th:href="@{/dentist/edit/{id}(id=${dentist.id})}" class="btn btn-warning btn-sm">Editar</a>
                         <a th:href="@{/dentist/delete/{id}(id=${dentist.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?');">Excluir</a>
