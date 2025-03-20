@@ -1,77 +1,76 @@
-server:
-  port: ${SERVER_PORT:8081}
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-keycloak:
-  auth-server-url: http://localhost:8080
-  realm: fiap-keycloak
+<modelVersion>4.0.0</modelVersion>
+<groupId>com.example</groupId>
+<artifactId>ecommerce-thymeleaf</artifactId>
+<version>1.0.0</version>
+<packaging>jar</packaging>
+<name>ecommerce-thymeleaf</name>
+<description>Spring Boot Application with Oracle DB</description>
 
-spring:
-  jackson:
-    default-property-inclusion: non_null
-    locale: en_US
-  security:
-    oauth2:
-      client:
-        provider:
-          fiap-keycloak:
-            issuer-uri: http://localhost:8080/realms/fiap-keycloak
-        registration:
-          keycloak:
-            provider: fiap-keycloak
-            authorization-grant-type: authorization_code
-            client-id: fiap-keycloak-confidential
-            client-secret: secret
-            scope: openid
-  mvc:
-    view:
-      prefix: /templates/
-      suffix: .html
+<properties>
+<java.version>17</java.version>
+<spring-boot.version>3.2.2</spring-boot.version>
+</properties>
 
+<dependencies>
+<!-- Spring Boot Starter Web -->
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
 
-  application:
-    name: ecommerce-thymeleaf
-  thymeleaf:
-    cache: false
-    encoding: ISO-8859-1
-    prefix: classpath:/templates/
-    suffix: .html
-  http:
-    encoding:
-      charset: ISO-8859-1
-  jpa:
-    database-platform: org.hibernate.dialect.Oracle12cDialect
-    hibernate:
-      ddl-auto: create
-    show-sql: true
-    open-in-view: true
-    properties:
-      hibernate:
-        format_sql: true
-    datasource:
-      url: jdbc:oracle:thin:@//localhost:1521/ORCL
-      username: RM553587
-      password: 0406197
-      driver-class-name: oracle.jdbc.OracleDriver
-  messages:
-    encoding: ISO-8859-1
-    basename: messages
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-    show-sql: true
+<!-- Spring Boot Starter Data JPA -->
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
 
-  devtools:
-    restart:
-      enabled: true
-logging:
-  level:
-    root: INFO
-    br: DEBUG
-    org:
-      hibernate:
-        SQL: DEBUG
-        type:
-          descriptor:
-            sql:
-              BasicBinder: TRACE
+<!-- Oracle JDBC Driver -->
+<dependency>
+<groupId>com.oracle.database.jdbc</groupId>
+<artifactId>ojdbc8</artifactId>
+<version>19.8.0.0</version>
+</dependency>
+
+<!-- Spring Boot Starter Thymeleaf -->
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+
+<!-- Lombok -->
+<dependency>
+<groupId>org.projectlombok</groupId>
+<artifactId>lombok</artifactId>
+<scope>provided</scope>
+</dependency>
+
+<!-- Spring Boot DevTools -->
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-devtools</artifactId>
+<scope>runtime</scope>
+<optional>true</optional>
+</dependency>
+
+<!-- Spring Boot Starter Test -->
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-test</artifactId>
+<scope>test</scope>
+</dependency>
+</dependencies>
+
+<build>
+<plugins>
+<plugin>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-maven-plugin</artifactId>
+</plugin>
+</plugins>
+</build>
+</project>
