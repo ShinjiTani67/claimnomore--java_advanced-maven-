@@ -22,31 +22,31 @@ public class UserController {
     public String listUsers(Model model) {
         List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
-        return "user-list"; // Nome do arquivo HTML
+        return "user";
     }
 
     @GetMapping("/form")
     public String showUserForm(Model model) {
         model.addAttribute("user", new User());
-        return "user-form";
+        return "userformulario";
     }
 
     @PostMapping("/save")
     public String saveUser(@ModelAttribute User user) {
         userService.saveUser(user);
-        return "redirect:/user/list";
+        return "redirect:/user";
     }
 
     @GetMapping("/edit/{id}")
     public String editUser(@PathVariable Long id, Model model) {
         User user = userService.getUserById(id).orElseThrow(() -> new IllegalArgumentException("Usuário inválido: " + id));
         model.addAttribute("user", user);
-        return "user-form";
+        return "userformulario";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
-        return "redirect:/user/list";
+        return "redirect:/user";
     }
 }

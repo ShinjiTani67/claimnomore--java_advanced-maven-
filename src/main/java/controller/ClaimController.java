@@ -23,7 +23,7 @@ public class ClaimController {
     public String listClaims(Model model) {
         List<Claim> claims = claimService.getAllClaims();
         model.addAttribute("claims", claims);
-        return "claim-list"; // Nome da página Thymeleaf
+        return "claim-list";
     }
 
     @GetMapping("/form")

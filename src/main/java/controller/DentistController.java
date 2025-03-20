@@ -21,19 +21,19 @@ public class DentistController {
     public String listDentists(Model model) {
         List<Dentist> dentists = dentistService.getAllDentists();
         model.addAttribute("dentists", dentists);
-        return "dentist-list"; // Página de listagem
+        return "dentista";
     }
 
     @GetMapping("/form")
     public String showDentistForm(Model model) {
         model.addAttribute("dentist", new Dentist());
-        return "dentist-form";
+        return "dentistaformulario";
     }
 
     @PostMapping("/save")
     public String saveDentist(@ModelAttribute Dentist dentist) {
         dentistService.saveDentist(dentist);
-        return "redirect:/dentist/list";
+        return "redirect:/dentista";
     }
 
     @GetMapping("/edit/{id}")
@@ -41,12 +41,12 @@ public class DentistController {
         Dentist dentist = dentistService.getDentistById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Dentista inválido: " + id));
         model.addAttribute("dentist", dentist);
-        return "dentist-form";
+        return "dentistaformulario";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteDentist(@PathVariable Long id) {
         dentistService.deleteDentist(id);
-        return "redirect:/dentist/list";
+        return "redirect:/dentista";
     }
 }
