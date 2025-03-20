@@ -30,9 +30,8 @@ public class ClaimService   {
 
     public Claim saveClaim(Claim claim) {
         return claimRepository.save(claim);
-    }
 
-    public void deleteClaim(Long id) {
+        public void deleteClaim(Long id) {
         claimRepository.deleteById(id);
     }
 }
