@@ -22,12 +22,19 @@ spring:
             client-id: fiap-keycloak-confidential
             client-secret: secret
             scope: openid
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
+
 
   application:
     name: ecommerce-thymeleaf
   thymeleaf:
     cache: false
     encoding: ISO-8859-1
+    prefix: classpath:/templates/
+    suffix: .html
   http:
     encoding:
       charset: ISO-8859-1
