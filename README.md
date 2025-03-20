@@ -23,5 +23,5 @@ as contas de usuários servem para exclusivamente para a verificação de sinist
 https://www.youtube.com/watch?v=O5D_YSpjp6Y
 
 ## Instalação
-- Clone o Repositório 
-https://github.com/ShinjiTani67/challenge_sprint01_java.git
+- Clone o Repositório
+https://github.com/ShinjiTani67/claimnomore--java_advanced-maven-.git
