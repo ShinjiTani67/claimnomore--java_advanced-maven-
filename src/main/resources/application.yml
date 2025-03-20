@@ -6,6 +6,8 @@ keycloak:
   realm: fiap-keycloak
 
 spring:
+  profiles:
+    active: dev
   security:
     oauth2:
       client:
