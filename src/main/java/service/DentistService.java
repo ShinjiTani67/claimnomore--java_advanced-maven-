@@ -26,7 +26,7 @@ public class DentistService {
     }
 
     public Dentist saveDentist(Dentist dentist) {
-        return dentistRepository.save(dentist); // Removed unnecessary cast
+        return (Dentist) dentistRepository.save(dentist); // Removed unnecessary cast
     }
 
     public void deleteDentist(Long id) {
