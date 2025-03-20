@@ -2,16 +2,14 @@ package controller;
 
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import repository.UserRepository;
 import service.UserService;
 
 import java.util.List;
 
-
-
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
 
@@ -34,7 +32,7 @@ public class UserController {
     @PostMapping("/save")
     public String saveUser(@ModelAttribute User user) {
         userService.saveUser(user);
-        return "redirect:/user";
+        return "redirect:/user/list";
     }
 
     @GetMapping("/edit/{id}")
@@ -47,6 +45,6 @@ public class UserController {
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
-        return "redirect:/user";
+        return "redirect:/user/list"; 
     }
 }
