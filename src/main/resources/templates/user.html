@@ -26,8 +26,8 @@
                     <td th:text="${user.id}"></td>
                     <td th:text="${user.name}"></td>
                     <td th:text="${user.email}"></td>
-                    <td th:text="${user.CPF}"></td>
-                    <td th:text="${user.admissiondate}"></td>
+                    <td th:text="${user.cpf}"></td>
+                    <td th:text="${#dates.format(user.admissionDate, 'dd/MM/yyyy')}"></td>
                     <td th:text="${user.job}"></td>
                     <td>
                         <a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-warning btn-sm">Editar</a>
