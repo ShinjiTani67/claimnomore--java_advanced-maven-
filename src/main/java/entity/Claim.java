@@ -8,7 +8,7 @@ import java.time.ZonedDateTime;
 @Data
 @ToString
 @Entity
-@Table(name = "tb_claim")
+@Table(name = "SINISTRO")
 public class Claim {
 
     @Id

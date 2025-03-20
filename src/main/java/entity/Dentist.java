@@ -8,7 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Data
 @ToString
 @Entity
-@Table(name="tb_dentist")
+@Table(name="DENTISTA")
 public class Dentist {
 
     @Id
