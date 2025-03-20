@@ -29,7 +29,7 @@ public class ClaimService   {
     }
 
     public Claim saveClaim(Claim claim) {
-        return (Claim) claimRepository.save(claim);
+        return claimRepository.save(claim);
     }
 
     public void deleteClaim(Long id) {
